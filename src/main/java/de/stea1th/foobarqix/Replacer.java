@@ -6,4 +6,7 @@ public interface Replacer {
         return String.valueOf(this.getClass().getAnnotation(Rule.class).value()).equals(s);
     }
 
+    default String getReplacerName() {
+        return this.getClass().getAnnotation(Rule.class).name();
+    }
 }

@@ -15,12 +15,12 @@ public class Main {
         String[] strings = stringHelper.convertToStringArray(number);
 
         for(Divider divider : dividers) {
-            stringBuilder.append(divider.isDivisible(num) ? divider.getClass().getAnnotation(Rule.class).name() : "");
+            stringBuilder.append(divider.isDivisible(num) ? divider.getDividerName() : "");
         }
 
         for(String string : strings) {
             for(Replacer replacer : replacers) {
-                stringBuilder.append(replacer.isExists(string) ? replacer.getClass().getAnnotation(Rule.class).name() : "");
+                stringBuilder.append(replacer.isExists(string) ? replacer.getReplacerName() : "");
             }
         }
 
