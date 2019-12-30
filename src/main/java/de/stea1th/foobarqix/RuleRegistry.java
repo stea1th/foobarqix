@@ -5,9 +5,7 @@ import org.reflections.scanners.SubTypesScanner;
 import org.reflections.scanners.TypeAnnotationsScanner;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RuleRegistry {
@@ -24,32 +22,34 @@ public class RuleRegistry {
         registry = reflections.getTypesAnnotatedWith(Rule.class);
     }
 
-    public Map<Integer, Divisible> getDividers() {
+    public List<Divider> getDividers() {
         return registry
                 .stream()
-                .filter(c -> Arrays.asList(c.getInterfaces()).contains(Divisible.class))
-                .collect(Collectors.toMap(s -> s.getAnnotation(Rule.class).value(), s -> {
+                .filter(c -> Arrays.asList(c.getInterfaces()).contains(Divider.class))
+                .sorted(Comparator.comparing(s-> s.getAnnotation(Rule.class).value()))
+                .map(s -> {
                     try {
-                        return (Divisible) s.getConstructor().newInstance();
+                        return (Divider) s.getConstructor().newInstance();
                     } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                         e.printStackTrace();
                     }
                     throw new IllegalArgumentException("Not possible to create an instance");
-                }));
+                }).collect(Collectors.toList());
     }
 
-    public Map<Integer, Existing> getReplacers() {
+    public List<Replacer> getReplacers() {
         return registry
                 .stream()
-                .filter(c -> Arrays.asList(c.getInterfaces()).contains(Divisible.class))
-                .collect(Collectors.toMap(s -> s.getAnnotation(Rule.class).value(), s -> {
+                .filter(c -> Arrays.asList(c.getInterfaces()).contains(Replacer.class))
+                .sorted(Comparator.comparing(s-> s.getAnnotation(Rule.class).value()))
+                .map(s -> {
                     try {
-                        return (Existing) s.getConstructor().newInstance();
+                        return (Replacer) s.getConstructor().newInstance();
                     } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                         e.printStackTrace();
                     }
                     throw new IllegalArgumentException("Not possible to create an instance");
-                }));
+                }).collect(Collectors.toList());
     }
 
 }
