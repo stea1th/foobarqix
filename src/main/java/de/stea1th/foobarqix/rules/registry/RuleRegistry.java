@@ -1,5 +1,8 @@
-package de.stea1th.foobarqix;
+package de.stea1th.foobarqix.rules.registry;
 
+import de.stea1th.foobarqix.rules.Divider;
+import de.stea1th.foobarqix.rules.Replacer;
+import de.stea1th.foobarqix.rules.Rule;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
 import org.reflections.scanners.TypeAnnotationsScanner;

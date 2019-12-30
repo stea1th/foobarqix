@@ -1,4 +1,4 @@
-package de.stea1th.foobarqix;
+package de.stea1th.foobarqix.rules.exceptions;
 
 public class MyException extends Exception {
 

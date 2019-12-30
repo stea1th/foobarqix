@@ -1,4 +1,4 @@
-package de.stea1th.foobarqix;
+package de.stea1th.foobarqix.rules;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

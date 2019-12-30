@@ -1,5 +1,10 @@
 package de.stea1th.foobarqix;
 
+import de.stea1th.foobarqix.helper.StringHelper;
+import de.stea1th.foobarqix.rules.registry.RuleRegistry;
+import de.stea1th.foobarqix.rules.Divider;
+import de.stea1th.foobarqix.rules.Replacer;
+
 import java.util.List;
 
 public class Main {
