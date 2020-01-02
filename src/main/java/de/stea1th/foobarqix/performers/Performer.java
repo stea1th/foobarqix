@@ -1,6 +1,6 @@
 package de.stea1th.foobarqix.performers;
 
-import de.stea1th.foobarqix.helper.StringHelper;
+import de.stea1th.foobarqix.helpers.StringHelper;
 import de.stea1th.foobarqix.rules.Divider;
 import de.stea1th.foobarqix.rules.Replacer;
 import de.stea1th.foobarqix.rules.registry.RuleRegistry;

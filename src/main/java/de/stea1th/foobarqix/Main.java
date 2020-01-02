@@ -7,9 +7,9 @@ import de.stea1th.foobarqix.rules.registry.RuleRegistry;
 public class Main {
 
     public static void main(String[] args) {
-        String number = "51";
-        Printer printer = new Printer(number);
+        String number = "105";
         RuleRegistry ruleRegistry = new RuleRegistry();
+        Printer printer = new Printer(number);
         Performer performer = new Performer(ruleRegistry);
         String result = performer.compute(number);
         printer.print(result);

@@ -1,4 +1,4 @@
-package de.stea1th.foobarqix.helper;
+package de.stea1th.foobarqix.helpers;
 
 public class StringHelper {
 
